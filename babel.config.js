@@ -4,6 +4,17 @@ module.exports = function(api) {
     presets: ['babel-preset-expo'],
     plugins: [
       'babel-plugin-styled-components',
+      [
+        'module-resolver',
+        {
+          root:['./src'],
+          extensions: ['.tsx', '.ts', '.js', '.json'],
+          alias: {
+            '@common': './src/common',
+            '@svg': './src/assets/svg'
+          }
+        }
+      ]
     ]
   };
 };
