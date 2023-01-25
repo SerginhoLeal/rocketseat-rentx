@@ -1,7 +1,10 @@
 import * as Native from 'react-native';
 
-import { RFValue } from 'react-native-responsive-fontsize';
 import styled, { css } from 'styled-components/native';
+import { RFValue } from 'react-native-responsive-fontsize';
+import { RectButton } from 'react-native-gesture-handler';
+
+import { CarDTO } from '@dtos';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -43,3 +46,21 @@ export const CarList = styled(Native.FlatList).attrs({
   },
   showVerticalScrollIndicator: false
 })``;
+
+export const MyCarButton = styled(RectButton)`
+  width: 60px;
+  height: 60px;
+
+  border-radius: 30px;
+
+  justify-content: center;
+  align-items: center;
+
+  ${({ theme }) => css`
+    background-color: ${theme.colors.main};
+  `};
+
+  position: absolute;
+  bottom: 13px;
+  right: 22px;
+`;
