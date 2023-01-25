@@ -4,7 +4,7 @@
   ],
   "files.exclude": {
     "node_modules": true,
-    "babel.config.js": true,
+    "babel.config.js":true,
     "yarn.lock": true,
     ".editorconfig": true,
     ".gitignore": true,
