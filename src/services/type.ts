@@ -1,0 +1,1 @@
+export type EndPoint = '/cars' | '/schedules_bycars' | '/schedules_byuser';
