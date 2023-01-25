@@ -1,4 +1,5 @@
 export type RootStackParamList = {
+  SignInScreens: undefined;
   HomeScreen: undefined;
   MyCarsScreen: undefined;
   CarDetailsScreen: undefined;
@@ -8,6 +9,7 @@ export type RootStackParamList = {
 };
 
 export type RoutesNameProps = {
+  signIn: 'SignInScreens',
   myCars: 'MyCarsScreen';
   home: 'HomeScreen';
   carDetails: 'CarDetailsScreen';
