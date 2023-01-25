@@ -14,8 +14,8 @@ export const Container = styled(RectButton)<ButtonProps>`
   align-items: center;
   justify-content: center;
 
-  ${({ theme, color }) => css`
-    background-color: ${color ? color: theme.colors.main};
+  ${({ color }) => css`
+    background-color: ${color};
   `};
 `;
 
