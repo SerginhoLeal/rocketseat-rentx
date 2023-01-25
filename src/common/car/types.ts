@@ -1,13 +1,6 @@
-interface CarData {
-  brand: string;
-  name: string;
-  rent: {
-    period: string;
-    price: number;
-  };
-  thumbnail: string;
-};
+import { CarDTO } from "@dtos";
+import { RectButtonProps } from "react-native-gesture-handler";
 
-export interface CarProps {
-  data: CarData;
+export interface CarProps extends RectButtonProps {
+  data: CarDTO;
 };

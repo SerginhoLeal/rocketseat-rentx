@@ -2,11 +2,12 @@ import * as React from 'react';
 import * as Styles from './styles';
 import * as Props from './types';
 
-import { Gasoline } from '@svg';
+import { getAccessoryIcon } from '@utils';
+export const Car: React.FC<Props.CarProps> = ({ data, ...rest }: Props.CarProps) => {
+  const MotorIcon = getAccessoryIcon(data.fuel_type);
 
-export const Car: React.FC<Props.CarProps> = ({ data }: Props.CarProps) => {
   return (
-    <Styles.Container>
+    <Styles.Container {...rest}>
       <Styles.Details>
         <Styles.Brand>{data.brand}</Styles.Brand>
         <Styles.Name>{data.name}</Styles.Name>
@@ -18,15 +19,12 @@ export const Car: React.FC<Props.CarProps> = ({ data }: Props.CarProps) => {
           </Styles.Rent>
 
           <Styles.Types>
-            <Gasoline />
+            <MotorIcon />
           </Styles.Types>
         </Styles.About>
       </Styles.Details>
 
-      <Styles.CarImage
-        source={{ uri: data.thumbnail }}
-        resizeMode='contain'
-      />
+      <Styles.CarImage source={{ uri: data.thumbnail }} resizeMode='contain' />
     </Styles.Container>
   );
 };
