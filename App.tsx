@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import * as React from 'react';
 import * as Native from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
@@ -5,9 +6,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 import { ThemeProvider } from 'styled-components';
 
-import HomeScreen from './src/screens/home';
-import DetailsScreen from './src/screens/carDetails';
-import SchedulingScreen from './src/screens/scheduling';
+import Routes from './src/routes';
 
 import theme from './src/styles/theme';
 
@@ -33,9 +32,9 @@ const Main: React.FC = () => {
   }
 
   return (
-    <Native.SafeAreaView onLayout={onLayoutRootView}>
+    <Native.SafeAreaView style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <ThemeProvider theme={theme}>
-        <SchedulingScreen />
+        <Routes />
       </ThemeProvider>
     </Native.SafeAreaView>
   );
