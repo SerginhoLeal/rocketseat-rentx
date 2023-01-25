@@ -2,7 +2,7 @@ import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper
 import { RFValue } from 'react-native-responsive-fontsize';
 import styled, { css } from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
   flex: 1;
 
   ${({ theme }) => css`
@@ -12,27 +12,25 @@ export const Container = styled.View`
 
 export const Header = styled.View`
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 
   position: absolute;
+  margin-top: ${getStatusBarHeight() + 18}px;
   margin-left: 24px;
-
-  ${({ theme }) => css`
-    margin-top: ${getStatusBarHeight() + 18}px;
-  `}
 `;
 
-export const CarDetails = styled.View`
+export const CarImages = styled.View`
   margin-top: ${getStatusBarHeight() + 32}px;
 `;
 
 export const Content = styled.ScrollView.attrs({
   contentContainerStyle:{
+    flex: 1,
     padding: 24,
     alignItems: 'center'
   },
-  showsVerticalScrollIndicator: false
+  showsVerticalScrollIndicator: false,
 })``;
 
 export const Details = styled.View`
@@ -45,9 +43,7 @@ export const Details = styled.View`
   margin-top: 38px;
 `;
 
-export const Description = styled.View`
-
-`;
+export const Description = styled.View``;
 
 export const Brand = styled.Text`
   ${({ theme }) => css`
@@ -56,7 +52,7 @@ export const Brand = styled.Text`
     font-size: ${RFValue(10)}px;
   `};
 
-  text-decoration: uppercase;
+  text-transform: uppercase;
 `;
 
 export const Name = styled.Text`
@@ -78,7 +74,7 @@ export const Period = styled.Text`
     font-size: ${RFValue(10)}px;
   `};
 
-  text-decoration: uppercase;
+  text-transform: uppercase;
 `;
 
 export const Price = styled.Text`
@@ -101,7 +97,7 @@ export const About = styled.Text`
   line-height: ${RFValue(25)}px;
 `;
 
-export const Accessory = styled.Text`
+export const Accessory = styled.View`
   width: 100%;
 
   flex-direction: row;

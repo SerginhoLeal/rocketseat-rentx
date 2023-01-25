@@ -1,57 +1,65 @@
 import React from 'react';
+import * as Native from 'react-native';
 import * as Styles from './styles';
 
+import { useNavigation, useRoute } from '@react-navigation/native';
+
+import { routes } from '../../routes/constants';
+
+import { CarDTO } from '@dtos';
+import { api } from '@fetch';
+
+import { getAccessoryIcon } from '@utils';
 import { BackButton, Slider, Accessory, Button } from '@common';
 
-import SpeedSvg from '@svg/speed.svg';
-import AccelerationSvg from '@svg/acceleration.svg';
-import ForceSvg from '@svg/force.svg';
-import GasolineSvg from '@svg/gasoline.svg';
-import ExchangeSvg from '@svg/exchange.svg';
-import PeopleSvg from '@svg/people.svg';
+interface Params {
+  car: CarDTO;
+}
 
-const CarDetails: React.FC = () => {
+const CarDetails = () => {
+  const navigation = useNavigation<any>();
+  const route = useRoute();
+
+  const { car } = route.params as Params;
+
+  const handleConfirmRental = () => navigation.navigate(routes.scheduling, { car });
+
+  const handleBack = () => navigation.goBack();
+
   return (
     <Styles.Container>
 
       <Styles.Header>
-        <BackButton icon='chevron-left' onPress={() => {}} />
+        <BackButton icon='chevron-left' onPress={handleBack} />
       </Styles.Header>
 
-      <Styles.CarDetails>
-        <Slider
-          imageUrl={['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYndlfI0sJJhQnVT8K4xaYb0n1wgPiPPH6W8yROqYhWmR9w1Zs6_l2nyW4AukUfeu7MVk&usqp=CAU']}
-        />
-      </Styles.CarDetails>
+      <Styles.CarImages>
+        <Slider imageUrl={car.photos} />
+      </Styles.CarImages>
 
       <Styles.Content>
         <Styles.Details>
           <Styles.Description>
-            <Styles.Brand>Lamborguini</Styles.Brand>
-            <Styles.Name>Hiracan</Styles.Name>
+            <Styles.Brand>{car.brand}</Styles.Brand>
+            <Styles.Name>{car.name}</Styles.Name>
           </Styles.Description>
           <Styles.Rent>
-            <Styles.Period>Ao dia</Styles.Period>
-            <Styles.Price>R$ 580</Styles.Price>
+            <Styles.Period>{car.rent.period}</Styles.Period>
+            <Styles.Price>R$ {car.rent.price}</Styles.Price>
           </Styles.Rent>
         </Styles.Details>
 
         <Styles.Accessory>
-          <Accessory name="380Km/h" icon={SpeedSvg} />
-          <Accessory name="3.2s" icon={AccelerationSvg} />
-          <Accessory name="888 HP" icon={ForceSvg} />
-          <Accessory name="Gasolina" icon={GasolineSvg} />
-          <Accessory name="Auto" icon={ExchangeSvg} />
-          <Accessory name="2 pessoas" icon={PeopleSvg} />
+          {car.accessories.map((accessory, index) => (
+            <Accessory key={accessory.type} name={accessory.name} icon={getAccessoryIcon(accessory.type)} />
+          ))}
         </Styles.Accessory>
 
-        <Styles.About>
-          Este é automóvel desportivo. Surgiu do lendário touro de lide indultado na praça Real Maestranza de Sevilla. É um belíssimo carro para quem gosta de acelerar.
-        </Styles.About>
+        <Styles.About>{car.about}</Styles.About>
       </Styles.Content>
 
       <Styles.Footer>
-        <Button title='Confirmar' />
+        <Button title='Confirmar' onPress={handleConfirmRental} />
       </Styles.Footer>
 
     </Styles.Container>
