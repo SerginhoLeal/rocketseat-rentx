@@ -11,7 +11,10 @@ module.exports = function(api) {
           extensions: ['.tsx', '.ts', '.js', '.json'],
           alias: {
             '@common': './src/common',
-            '@svg': './src/assets/svg'
+            '@svg': './src/assets/svg',
+            '@fetch': './src/services/fetch.ts',
+            '@dtos': './src/dtos',
+            '@utils': './src/utils',
           }
         }
       ]
