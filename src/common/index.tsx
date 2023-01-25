@@ -4,3 +4,5 @@ export * from './slider';
 export * from './accessory';
 export * from './button';
 export * from './calendar';
+export * from './confirmButton';
+export * from './load';
