@@ -11,12 +11,15 @@ import SchedulingDetailsScreen from '../screens/schedulingDetails';
 import SchedulingCompleteScreen from '../screens/schedulingComplete';
 import myCarsScreens from '../screens/myCars';
 import SignInScreens from '../screens/signIn';
+import SplashScreens from '../screens/splash';
+
 
 const { Navigator, Screen } = createNativeStackNavigator<RootStackParamList>();
 
 const StackRoutes: React.FC = () => {
   return (
-    <Navigator initialRouteName='HomeScreen' screenOptions={{ headerShown: false }}>
+    <Navigator initialRouteName='SplashScreens' screenOptions={{ headerShown: false }}>
+      <Screen name={routes.splash} component={SplashScreens} />
       <Screen name={routes.signIn} component={SignInScreens} />
       <Screen name={routes.home} component={HomeScreen} />
       <Screen name={routes.carDetails} component={CarDetailsScreen} />
