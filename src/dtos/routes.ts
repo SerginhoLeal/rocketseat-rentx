@@ -1,4 +1,5 @@
 export type RootStackParamList = {
+  SplashScreens: undefined;
   SignInScreens: undefined;
   HomeScreen: undefined;
   MyCarsScreen: undefined;
@@ -9,6 +10,7 @@ export type RootStackParamList = {
 };
 
 export type RoutesNameProps = {
+  splash: 'SplashScreens';
   signIn: 'SignInScreens',
   myCars: 'MyCarsScreen';
   home: 'HomeScreen';
