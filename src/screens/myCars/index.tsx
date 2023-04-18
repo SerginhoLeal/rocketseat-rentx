@@ -8,7 +8,7 @@ import { AntDesign } from '@expo/vector-icons';
 
 import { api } from '@fetch';
 import { CarDTO } from '@dtos';
-import { BackButton, Car, Load } from '@common';
+import { BackButton, Car, Load, LoadAnimation } from '@common';
 
 interface CarProp {
   id: string;
@@ -57,7 +57,7 @@ export default function MyCarsScreen(){
 
       </Styles.Header>
 
-      {loading ? <Load /> : 
+      {loading ? <LoadAnimation /> : 
         <Styles.Content>
           <Styles.Appointment>
             <Styles.AppointmentsTitle>booking done</Styles.AppointmentsTitle>

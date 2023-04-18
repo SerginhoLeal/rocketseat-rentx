@@ -1,10 +1,10 @@
-import 'react-native-gesture-handler';
 import * as React from 'react';
 import * as Native from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { useFonts } from 'expo-font';
 import { ThemeProvider } from 'styled-components';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import Routes from './src/routes';
 
@@ -34,7 +34,9 @@ const Main: React.FC = () => {
   return (
     <Native.SafeAreaView style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <ThemeProvider theme={theme}>
-        <Routes />
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <Routes />
+        </GestureHandlerRootView>
       </ThemeProvider>
     </Native.SafeAreaView>
   );

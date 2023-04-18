@@ -20,7 +20,7 @@ const StackRoutes: React.FC = () => {
   return (
     <Navigator initialRouteName='SplashScreens' screenOptions={{ headerShown: false }}>
       <Screen name={routes.splash} component={SplashScreens} />
-      <Screen name={routes.signIn} component={SignInScreens} />
+      <Screen name={routes.signIn} component={SignInScreens} options={{ gestureEnabled: false }} />
       <Screen name={routes.home} component={HomeScreen} />
       <Screen name={routes.carDetails} component={CarDetailsScreen} />
       <Screen name={routes.scheduling} component={SchedulingScreen} />

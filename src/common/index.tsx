@@ -6,3 +6,4 @@ export * from './button';
 export * from './calendar';
 export * from './confirmButton';
 export * from './load';
+export * from './loadAnimation';
